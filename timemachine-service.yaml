@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: timemachine-{{USER}}
+  name: timemachine-{{USER}}
+spec:
+  type: NodePort
+  ports:
+  # - name: "137"
+  #   port: 137
+  #   protocol: UDP
+  #   # targetPort: 137
+  # - name: "138"
+  #   port: 138
+  #   protocol: UDP
+  #   # targetPort: 138
+  # - name: "139"
+  #   port: 139
+  #   # targetPort: 139
+  - name: "445"
+    port: 445
+    # targetPort: 445
+  selector:
+    service: timemachine-{{USER}}
+status:
+  loadBalancer: {}

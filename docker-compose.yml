@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  timemachine:
+    container_name: timemachine-docker
+    build: .
+    image: YOUR_REGISTRY/timemachine:0.0.1
+    ports:
+      # - "137:137/udp"
+      # - "138:138/udp"
+      # - "139:139"
+      - "445:445"
+    volumes:
+      - timemachine-volume:/backup/timemachine
+
+volumes:
+  timemachine-volume:
